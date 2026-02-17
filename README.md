@@ -1,3 +1,6 @@
+<img width="400" height="400" alt="ChaosGate" src="https://github.com/user-attachments/assets/10976908-8983-4732-8759-0f927b795ab6" />
+
+
 # chaosgate
 ChaosGate is a programmable egress proxy for staging and QA environments that enables controlled chaos engineering and full-featured HTTP mocking against external dependencies.
 
