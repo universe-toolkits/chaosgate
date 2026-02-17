@@ -22,11 +22,11 @@ func NewAPI(p *proxy.Proxy) *API {
 func (a *API) Handler() http.Handler {
 	r := chi.NewRouter()
 
-	r.Get("/config", a.getConfig)
-	r.Put("/config", a.updateConfig)
+	r.Get("/api/config", a.getConfig)
+	r.Put("/api/config", a.updateConfig)
 	//r.Post("/reload", a.reloadConfig)
 
-	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
+	r.Get("/api/health", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("ok"))
 	})
 
