@@ -1,0 +1,50 @@
+rules:
+  - name: simulate_provider_503
+    match:
+      host: api.provider.com
+      path_prefix: /v1/payment
+    percentage: 30
+    action:
+      type: mock
+      status: 503
+      body: "service unavailable"
+
+  - name: full_mock_success
+    match:
+      host: api.provider.com
+      path_prefix: /v1/balance
+    action:
+      type: mock
+      status: 200
+      body: |
+        {
+          "balance": 1000,
+          "currency": "USD"
+        }
+  - name: header_based_mock
+    match:
+      headers:
+        X-Client: "qa-tool"
+    action:
+      type: mock
+      status: 200
+      body: '{"ok":true}'
+
+  - name: query_param_mock
+    match:
+      query:
+        test: "true"
+    action:
+      type: mock
+      status: 200
+      body: '{"query_match":true}'
+
+  - name: jsonpath_mock
+    match:
+      jsonpath:
+        expression: "$.user.id"
+        value: 123
+    action:
+      type: mock
+      status: 200
+      body: '{"jsonpath_match":true}'
