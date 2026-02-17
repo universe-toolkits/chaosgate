@@ -1,4 +1,4 @@
-<img width="400" height="400" alt="ChaosGate" src="https://github.com/user-attachments/assets/10976908-8983-4732-8759-0f927b795ab6" />
+<img width="400" height="500" alt="ChaosGate" src="https://github.com/user-attachments/assets/10976908-8983-4732-8759-0f927b795ab6" />
 
 
 # chaosgate
