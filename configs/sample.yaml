@@ -48,3 +48,22 @@ rules:
       type: mock
       status: 200
       body: '{"jsonpath_match":true}'
+
+  - name: timeout_and_mutate
+    match:
+      host: api.provider.com
+      path_prefix: /v1/payment
+    percentage: 50
+    action:
+      type: sequence
+      actions:
+        - type: latency
+          min_ms: 500
+          max_ms: 1500
+        - type: mutate
+          mutations:
+            - field: "user.id"
+              type_change: "int"
+              random: true
+        - type: random_status
+          statuses: [500, 502, 503]
